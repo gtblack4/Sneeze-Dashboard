@@ -25,5 +25,5 @@ def totalCount(sneezedata):
 
 
 
-st.write(sneezeData2021)
-print('fart')
+	st.write(sneezeData2021)
+	print('fart')

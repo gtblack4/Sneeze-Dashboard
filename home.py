@@ -10,18 +10,20 @@ import twentytwentyone
 import about
 import dashboard
 
-st.title("Gage's Sneeze Project")
+def main():
+	st.title("Gage's Sneeze Project")
 
-PAGES = {
-	"Home Dashboard": dashboard,
-	"About The Project": about,
-	"2020 Data and Analysis": twentytwenty,
-	"2021 Data and Analysis": twentytwentyone
+	PAGES = {
+		"Home Dashboard": dashboard,
+		"About The Project": about,
+		"2020 Data and Analysis": twentytwenty,
+		"2021 Data and Analysis": twentytwentyone
 
-}
-st.sidebar.title('Navigation')
-selection = st.sidebar.radio("Go to", list(PAGES.keys()))
-page = PAGES[selection]
-page.app()
-
+	}
+	st.sidebar.title('Navigation')
+	selection = st.sidebar.radio("Go to", list(PAGES.keys()))
+	page = PAGES[selection]
+	page.app()
+if __name__ == '__main__':
+    main()
 
