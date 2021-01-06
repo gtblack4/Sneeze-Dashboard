@@ -1,1 +1,1 @@
-worker: streamlit run home.py
+web: streamlit run home.py
