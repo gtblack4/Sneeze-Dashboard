@@ -11,10 +11,10 @@ import about
 import dashboard
 
 def main():
-	st.title("Gage's Sneeze Project")
+	st.title("Gage's Sneeze Collection Project")
 
 	PAGES = {
-		"Home Dashboard": dashboard,
+		"Dashboard": dashboard,
 		"About The Project": about,
 		"2020 Data and Analysis": twentytwenty,
 		"2021 Data and Analysis": twentytwentyone

@@ -8,10 +8,9 @@ import csv
 import twentytwenty
 import twentytwentyone
 
-st.title("Gage's Sneeze Project")
 
 def app():
-	st.title('Analysis of 2020 Sneezes')
+	st.title('Why are you doing this?')
 	st.write('Shortcomings')
 
 

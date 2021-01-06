@@ -4,30 +4,27 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 import csv
-#with open(os.path.join('C:\\Users\\Gage\\Downloads\\sneezeAnalysis-master\\sneezeAnalysis-master','Sneezes.csv')) as csvFile:
+import functions as mf
+#imports the csv file
 sneezeData2020 = pd.read_csv('sneezes2020.csv')
-sneezeData2021 = pd.read_csv('sneezes2021.csv')
 
-
-def printLine():
-	st.write("farts")
-
-#gets the sum of all the values in the sneezes column
-def totalCount(sneezedata):
-	sneezeSum=sneezedata.sum(axis=0)
-	return sneezeSum[1]
 
 def monthComparisonChart():
 	print('fart')
 
 def app():
 	st.title('Analysis of 2020 Sneezes')
-	st.write('Shortcomings')
-
+	st.write('2020 At a Glance')
+	st.write(mf.sneezeLessDays(sneezeData2020))
 	if st.button("2020 Analysis"):
-		st.write(totalCount(sneezeData2020))
-		st.write(totalCount(sneezeData2021))
-	 
+		st.write(mf.totalSum(sneezeData2020))
+		st.write(mf.sneezeFitCount(sneezeData2020))
+		st.write(mf.dailyAverage(sneezeData2020))
+		st.write(mf.sneezeFitAverage(sneezeData2020))
+		st.write(mf.getDaysElapsed())
+		st.write(mf.dayBreakdown(sneezeData2020))
+		
+
 	chart_data = pd.DataFrame(
 	     np.random.randn(20, 3),
 	     columns=['a', 'b', 'c'])
@@ -49,8 +46,8 @@ def app():
 		st.write('Goodbye')
 
 	if st.button('Click this for'):
-		st.write(totalCount())
+		st.write(mf.totalCount())
 
 
-	st.write(sneezeData2021)
+	st.write(sneezeData2020)
 	print('fart')
