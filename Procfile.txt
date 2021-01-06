@@ -1,1 +1,1 @@
-web: python home.py:main
+web: streamlit run home.py
