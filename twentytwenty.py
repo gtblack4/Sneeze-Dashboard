@@ -36,11 +36,6 @@ def app():
 
 
 	
-	
-
-	map_data = pd.DataFrame(
-	    np.random.randn(1000, 2) / [50, 50] + [37.76, -122.4],
-	    columns=['lat', 'lon'])
 
 	
 	chart = alt.Chart(mf.dayBreakdown(sneezeData2020)).mark_bar().encode(
@@ -49,7 +44,6 @@ def app():
 		color=alt.Color('Day of Week')
 	).properties(width=alt.Step(100))
 
-	st.write(map_data)
 	st.altair_chart(chart)
 	st.write(sneezeData2020)
 
