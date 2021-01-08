@@ -2,7 +2,7 @@
 import numpy as np
 import pandas as pd
 import datetime as datetime
-
+import streamlit as st
 dateFormat = "%I:%M %p %m/%d/%Y"
 
 #TODO finish this function to get the number of days elapsed in the year
@@ -42,13 +42,33 @@ def sneezeLessDays(sneezedata):
 
 def dayBreakdown(sneezedata):
 
-	breakdown = [pd.DatetimeIndex(sneezedata['Timestamp']).dayofweek],[sneezedata['Number of Sneezes']]
-	print('buttpussy')
+	#breakdown = [pd.DatetimeIndex(sneezedata['Timestamp']).dayofweek],[sneezedata['Number of Sneezes']]
+	dayofweek =[0,0,0,0,0,0,0]
+
+
 	for row in sneezedata.iterrows():
-		if(pd.to_datetime(row[1]['Timestamp']).dayofweek == 7):
-				print(row[1]['Timestamp'])
-				print(row[1]['Number of Sneezes'])
+		dayofweek[pd.to_datetime(row[1]['Timestamp']).dayofweek] += int(row[1]['Number of Sneezes'])
+
+	dayBreakdown = pd.DataFrame({
+		'Day of Week': ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+		'Daily Sum' : [dayofweek[6],dayofweek[0],dayofweek[1],dayofweek[2],dayofweek[3],dayofweek[4],dayofweek[5]]
+		})
+	# dayBreakdown = pd.DataFrame({
+	# 	'Sunday': [dayofweek[6]],
+	# 	'Monday': [dayofweek[0]],
+	# 	'Tuesday': [dayofweek[1]],
+	# 	'Wednesday': [dayofweek[2]],
+	# 	'Thursday': [dayofweek[3]],
+	# 	'Friday': [dayofweek[4]],
+	# 	'Saturday': [dayofweek[6]],
+	#   	})
+
+	#st.write(dayBreakdown)
+
+	return dayBreakdown
+def mapData(sneezedata):
+	return "fuck"
 
 	#print(pd.DatetimeIndex(sneezedata['Timestamp']))
 	
-	return sneezedata['Timestamp']
+	
