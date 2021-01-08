@@ -6,20 +6,21 @@ import pandas as pd
 import csv
 import functions as mf
 import altair as alt
+import gspread
 #imports the csv file
-sneezeData2020 = pd.read_csv('sneezes2020.csv')
+sneezeData2020 = pd.read_csv('sneezes2020.csv',sep=";") #.dropna()
 
 
 def monthComparisonChart():
 	print('fart')
 
 def app():
+	
 	st.title('Analysis of 2020 Sneezes')
 	st.write('2020 At a Glance')
 
 	atGlance = st.beta_expander("Show/Hide", expanded=True)
 	with atGlance:
-		pussy = '2'
 		cols = st.beta_columns(2)
 		cols[0].write("Total Number of Sneezes:")
 		cols[1].write(mf.totalSum(sneezeData2020))
@@ -41,15 +42,14 @@ def app():
 	    np.random.randn(1000, 2) / [50, 50] + [37.76, -122.4],
 	    columns=['lat', 'lon'])
 
-
-	option = st.selectbox('How would you like to be contacted?',('Email', 'Home phone', 'Mobile phone'))
-	st.write('You selected:', option)
-
 	
 	chart = alt.Chart(mf.dayBreakdown(sneezeData2020)).mark_bar().encode(
-		x=alt.X('Day of Week', sort=None),
-		y='Daily Sum',
-	)
+		x=alt.X('Day of Week:N', sort=None),
+		y=alt.Y('Daily Sum:Q',scale=alt.Scale(domain=[0,300])),
+		color=alt.Color('Day of Week')
+	).properties(width=alt.Step(100))
+
+	st.write(map_data)
 	st.altair_chart(chart)
 	st.write(sneezeData2020)
 

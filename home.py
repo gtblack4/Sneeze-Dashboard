@@ -4,12 +4,13 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 import csv
-
 import twentytwenty
 import twentytwentyone
 import about
 import dashboard
-
+import requests
+import gspread
+import os.path
 def main():
 	st.title("Gage's Sneeze Collection Project")
 
@@ -23,7 +24,21 @@ def main():
 	st.sidebar.title('Navigation')
 	selection = st.sidebar.radio("Go to", list(PAGES.keys()))
 	page = PAGES[selection]
+	
+#For now, if the file doesn't exist. We will retreive it from Google.
+#TODO Check if the file was created in the last week
+	if not (os.path.isfile("sneezes2020.csv")):
+		gc = gspread.service_account(filename='service_account.json')
+		worksheet = gc.open('2020 Sneeze Survey')
+		array = np.array(worksheet.sheet1.get_all_values())
+		np.savetxt("sneezes2020.csv",array,delimiter=";",fmt='%s')
+	if (os.path.isfile("sneezes2021.csv")):
+		gc = gspread.service_account(filename='service_account.json')
+		worksheet = gc.open('2021 Sneeze Survey')
+		array = np.array(worksheet.sheet1.get_all_values())
+		np.savetxt("sneezes2021.csv",array,delimiter=";",fmt='%s')
+	
 	page.app()
 if __name__ == '__main__':
-    main()
+	main()
 

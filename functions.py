@@ -47,8 +47,9 @@ def dayBreakdown(sneezedata):
 
 
 	for row in sneezedata.iterrows():
-		dayofweek[pd.to_datetime(row[1]['Timestamp']).dayofweek] += int(row[1]['Number of Sneezes'])
-
+		print(pd.to_datetime(row[1]['Timestamp']).dayofweek)
+		dayofweek[int(pd.to_datetime(row[1]['Timestamp']).dayofweek)] += int(row[1]['Number of Sneezes'])
+	print(dayofweek)
 	dayBreakdown = pd.DataFrame({
 		'Day of Week': ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
 		'Daily Sum' : [dayofweek[6],dayofweek[0],dayofweek[1],dayofweek[2],dayofweek[3],dayofweek[4],dayofweek[5]]
