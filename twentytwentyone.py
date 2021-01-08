@@ -26,7 +26,7 @@ def app():
 		cols[1].write(mf.dailyAverage(sneezeData2021))
 		cols[0].write("Average Number of Sneezes per fit:")
 		cols[1].write(mf.sneezeFitAverage(sneezeData2021))
-		cols[0].write("Days Withou Sneezes:")
+		cols[0].write("Days Without Sneezes:")
 		cols[1].write(mf.sneezeLessDays(sneezeData2021))
 
 
@@ -35,7 +35,7 @@ def app():
 	y=alt.Y('Daily Sum:Q'),
 	color=alt.Color('Day of Week')
 	).properties(width=alt.Step(100))
-	
+
 	def printLine():
 		st.write("farts")
 	st.altair_chart(chart)

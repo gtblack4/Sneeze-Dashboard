@@ -70,6 +70,10 @@ def dayBreakdown(sneezedata):
 def mapData(sneezedata):
 	return "fuck"
 
+def cumSum(sneezedata):
+	sneezedata['Cumulative'] = sneezedata['Number of Sneezes'].cumsum()
+	return sneezedata
+
 	#print(pd.DatetimeIndex(sneezedata['Timestamp']))
 	
 	
