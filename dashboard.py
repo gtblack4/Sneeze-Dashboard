@@ -32,7 +32,7 @@ def app():
 
 
 
-
+	scales = alt.selection_interval(bind='scales')
 	lineChartDF = pd.DataFrame({
 		'Timestamp': Timestamp,
 		'Cumulative': dataTotal['Cumulative'],
@@ -52,7 +52,8 @@ def app():
 	points = base.mark_circle().encode(
     opacity=alt.value(0)
 	).add_selection(
-	    highlight
+	    highlight,
+	    scales
 	).properties(
 	    width=600
 	)

@@ -34,16 +34,16 @@ def main():
 
 #For now, if the file doesn't exist. We will retreive it from Google.
 #TODO Check if the file was created in the last week
-	if not (os.path.isfile("sneezes2020.csv")):
-		gc = gspread.service_account(filename='service_account.json')
-		worksheet = gc.open('2020 Sneeze Survey')
-		array = np.array(worksheet.sheet1.get_all_values())
-		np.savetxt("sneezes2020.csv",array,delimiter=";",fmt='%s')
-	if not (os.path.isfile("sneezes2021.csv")):
-		gc = gspread.service_account(filename='service_account.json')
-		worksheet = gc.open('2021 Sneeze Survey')
-		array = np.array(worksheet.sheet1.get_all_values())
-		np.savetxt("sneezes2021.csv",array,delimiter=";",fmt='%s')
+	# if (os.path.isfile("sneezes2020.csv")):
+	# 	gc = gspread.service_account(filename='service_account.json')
+	# 	worksheet = gc.open('2020 Sneeze Survey')
+	# 	array = np.array(worksheet.sheet1.get_all_values())
+	# 	np.savetxt("sneezes2020.csv",array,delimiter=";",fmt='%s')
+	# if (os.path.isfile("sneezes2021.csv")):
+	# 	gc = gspread.service_account(filename='service_account.json')
+	# 	worksheet = gc.open('2021 Sneeze Survey')
+	# 	array = np.array(worksheet.sheet1.get_all_values())
+	# 	np.savetxt("sneezes2021.csv",array,delimiter=";",fmt='%s')
 	
 	page.app()
 if __name__ == '__main__':
