@@ -4,6 +4,7 @@ import pandas as pd
 import datetime as datetime
 import streamlit as st
 import altair as alt
+import calendar
 dateFormat = "%I:%M %p %m/%d/%Y"
 
 #TODO finish this function to get the number of days elapsed in the year
@@ -45,7 +46,16 @@ def totalSum(sneezedata):
 
 #Takes the array of sneezedata and returns the daily average
 def dailyAverage(sneezedata):
-	dailyAverage=int(sneezedata.sum(axis=0)['Number of Sneezes'])/365
+	sneezeYear = pd.to_datetime(sneezedata['Timestamp'][0]).year
+	thisYear = pd.to_datetime(datetime.date.today()).year
+	dayOfYear = pd.to_datetime(datetime.date.today()).dayofyear
+	if(sneezeYear == thisYear):
+		dailyAverage=int(sneezedata.sum(axis=0)['Number of Sneezes'])/dayOfYear
+	else:
+		if(calendar.isleap(sneezeYear)):
+			dailyAverage=int(sneezedata.sum(axis=0)['Number of Sneezes'])/366
+		else:
+			dailyAverage=int(sneezedata.sum(axis=0)['Number of Sneezes'])/365
 	return dailyAverage
 
 #Takes the array of sneezedata and returns the number of sneezing events
@@ -64,8 +74,19 @@ def sneezeFitAverage(sneezedata):
 
 
 def sneezeLessDays(sneezedata):
-	numDays = np.unique(pd.DatetimeIndex(sneezedata['Timestamp']).date).size
-	numDays = 365 - numDays
+	sneezeYear = pd.to_datetime(sneezedata['Timestamp'][0]).year
+	thisYear = pd.to_datetime(datetime.date.today()).year
+	dayOfYear = pd.to_datetime(datetime.date.today()).dayofyear
+	if(sneezeYear == thisYear):
+		numDays = np.unique(pd.DatetimeIndex(sneezedata['Timestamp']).date).size
+		numDays = dayOfYear - numDays
+	else:
+		if(calendar.isleap(sneezeYear)):
+			numDays = np.unique(pd.DatetimeIndex(sneezedata['Timestamp']).date).size
+			numDays = 366 - numDays
+		else:
+			numDays = np.unique(pd.DatetimeIndex(sneezedata['Timestamp']).date).size
+			numDays = 365 - numDays
 	return(numDays)
 
 def dayBreakdown(sneezedata):
@@ -90,7 +111,7 @@ def dayBreakdown(sneezedata):
 def monthBreakdown(sneezedata):
 	monthArray =[0,0,0,0,0,0,0,0,0,0,0,0,0]
 	for row in sneezedata.iterrows():
-		monthArray[int(pd.to_datetime(row[0]['Timestamp']).month)] += int(row[1]['Number of Sneezes'])
+		monthArray[int(pd.to_datetime(row[1]['Timestamp']).month)] += int(row[1]['Number of Sneezes'])
 
 	monthBreakdown = pd.DataFrame({
 		'Month': ["January","February","March","April","May,","June","July","August","September","October","November","December"],

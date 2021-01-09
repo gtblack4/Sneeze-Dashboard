@@ -11,6 +11,6 @@ import twentytwentyone
 
 def app():
 	st.title('Why are you doing this?')
-	st.write('Shortcomings')
+	st.write("In 2019 I noticed that I sneezed more than my nearby co-workers. At the start of 2020 I set out to see just how much I was actually sneezing.")
 
 

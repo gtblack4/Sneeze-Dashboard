@@ -17,13 +17,8 @@ def app():
 	mf.dataBreakdown(sneezeData2021)
 	allSneezeData = [sneezeData2020,sneezeData2021]	
 
-	st.write(mf.buildDayArray(sneezeData2020))
-
-	st.title('Yearly Anylsis')
-	st.write('Shortcomings')
+	st.title('Live Dashboard')
 	#mf.cumulativeComparison(allSneezeData)
-
-	st.write("2020 Cum")
 
 	dateRange = pd.date_range('2020-01-01','2020-12-31',freq='bm')
 
@@ -45,7 +40,7 @@ def app():
 		})
 
 	highlight = alt.selection(type='single', on='mouseover',
-                          fields=['Year'], nearest=True)
+        fields=['Year'], nearest=True)
 
 
 	base = alt.Chart(lineChartDF).encode(
