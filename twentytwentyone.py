@@ -29,17 +29,15 @@ def app():
 		cols[0].write("Days Without Sneezes:")
 		cols[1].write(mf.sneezeLessDays(sneezeData2021))
 
+	timeFrame = st.beta_columns(2)
+	timeFrame[0].write(mf.dayBreakdown(sneezeData2021))	
+	timeFrame[1].write(mf.monthBreakdown(sneezeData2021))
+	timeFrame[0].write('butt')
 
-	chart = alt.Chart(mf.dayBreakdown(sneezeData2021)).mark_bar().encode(
-	x=alt.X('Day of Week:N', sort=None),
-	y=alt.Y('Daily Sum:Q'),
-	color=alt.Color('Day of Week')
-	).properties(width=alt.Step(100))
 
 	def printLine():
 		st.write("farts")
-	st.altair_chart(chart)
-
+	
 
 	#mapcode
 	mapData = sneezeData2021['GeoCode'].str.split(",",n=1,expand=True).rename(columns={0: 'lat',1: 'lon'})

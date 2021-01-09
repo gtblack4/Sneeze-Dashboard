@@ -35,6 +35,10 @@ def app():
 
 
 
+
+	timeFrame = st.beta_columns(2)
+	timeFrame[0].write(mf.dayBreakdown(sneezeData2020))	
+	timeFrame[1].write(mf.monthBreakdown(sneezeData2020))
 	# gas = pd.crosstab(sneezeData2020['Timestamp'], columns=sneezeData2020.['Number of Sneezes'])
 	# gas = gas.stack().reset_index()
 	# gas = gas.rename(columns={0:'CummulativeCount'})
@@ -48,17 +52,11 @@ def app():
 		x=alt.X("Timestamp", sort=None,axis=alt.Axis(labels=False)),
 	    y=alt.Y("Cumulative:Q")).properties(width="container")
 	
-	with st.beta_container():
-		st.altair_chart(fart)
-	mf.cumSum(sneezeData2020)
-	
-	chart = alt.Chart(mf.dayBreakdown(sneezeData2020)).mark_bar().encode(
-		x=alt.X('Day of Week:N', sort=None),
-		y=alt.Y('Daily Sum:Q',scale=alt.Scale(domain=[0,300])),
-		color=alt.Color('Day of Week')
-	).properties(width=alt.Step(100))
 
-	st.altair_chart(chart)
+	
+
+		
+
 	st.write(sneezeData2020)
 
 
