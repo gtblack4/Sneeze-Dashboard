@@ -21,8 +21,13 @@ def app():
 	#mf.cumulativeComparison(allSneezeData)
 
 	dateRange = pd.date_range('2020-01-01','2020-12-31',freq='bm')
+	sumLineCompare(sneezeData2020,sneezeData2021)
+	heatMapChart(sneezeData2020,sneezeData2021)
 
 
+
+
+def sumLineCompare(sneezeData2020,sneezeData2021):
 	Timestamp = sneezeData2020['Timestamp'].append(sneezeData2021['Timestamp'])
 	data2020 = pd.DataFrame(sneezeData2020['Cumulative'])
 	data2021 = pd.DataFrame(sneezeData2021['Cumulative'])
@@ -43,17 +48,25 @@ def app():
         fields=['Year'], nearest=True)
 
 
+
 	base = alt.Chart(lineChartDF).encode(
 	  x=alt.X('monthdate(Timestamp):T'),
 	  y=alt.Y('Cumulative:Q'),
-	  color='Year:N'
+	  color='Year:N',
+	  tooltip=[
+        alt.Tooltip('monthdate(Timestamp):T', title='Date'),
+        alt.Tooltip('Cumulative:Q', title='Total Sneezes')
+    ]
 	)
+
 
 	points = base.mark_circle().encode(
     opacity=alt.value(0)
 	).add_selection(
 	    highlight,
 	    scales
+	 
+
 	).properties(
 	    width=600
 	)
@@ -62,3 +75,29 @@ def app():
 	)
 
 	st.write(points + lines)
+
+#MAYBE ONLY DO THIS FOR ONE YEAR
+
+def heatMapChart(sneezeData2020,sneezeData2021):
+	dataTotal = sneezeData2020.append(sneezeData2021)
+	dataTotal['Time'] = pd.to_datetime(dataTotal['Timestamp']).dt.time
+	dataTotal['Date'] = pd.to_datetime(dataTotal['Timestamp']).dt.date
+
+	
+	lineChartDF = pd.DataFrame({
+		'Time': dataTotal['Time'],
+		'Date': dataTotal['Date'],
+		'Timestamp': dataTotal['Timestamp'],
+		'Sneezes': dataTotal['Number of Sneezes']
+		})
+	st.write(lineChartDF)
+	fartChart = alt.Chart(lineChartDF).mark_rect().encode(
+    alt.X('hours(Timestamp):O', title='hour of day'),
+    alt.Y('month(Date):O', title='date'),
+    alt.Color('sum(Sneezes):Q', title='Sneezes'),
+        tooltip=[
+        alt.Tooltip('hours(Timestamp):T', title='Date'),
+        alt.Tooltip('sum(Sneezes):Q', title='Total Sneezes')
+    ]
+)
+	st.write(fartChart)

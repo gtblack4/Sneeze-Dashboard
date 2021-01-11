@@ -33,29 +33,12 @@ def app():
 		cols[0].write("Days Without Sneezes:")
 		cols[1].write(mf.sneezeLessDays(sneezeData2020))
 
-
-
-
 	timeFrame = st.beta_columns(2)
 	timeFrame[0].write(mf.dayBreakdown(sneezeData2020))	
 	timeFrame[1].write(mf.monthBreakdown(sneezeData2020))
-	# gas = pd.crosstab(sneezeData2020['Timestamp'], columns=sneezeData2020.['Number of Sneezes'])
-	# gas = gas.stack().reset_index()
-	# gas = gas.rename(columns={0:'CummulativeCount'})
-	# st.write(gas)
 
-	sneezeData2020['Cumulative'] = sneezeData2020['Number of Sneezes'].cumsum()
-	fart = alt.Chart(sneezeData2020).transform_window(
-	    cumulative_count="count()",
-	    sort=[{"field": "Cumulative"}],
-	).mark_area().encode(
-		x=alt.X("Timestamp", sort=None,axis=alt.Axis(labels=False)),
-	    y=alt.Y("Cumulative:Q")).properties(width="container")
-	
 
-	
 
-		
 
 	st.write(sneezeData2020)
 
