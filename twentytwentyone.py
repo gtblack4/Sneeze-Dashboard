@@ -32,7 +32,6 @@ def app():
 	timeFrame = st.beta_columns(2)
 	timeFrame[0].write(mf.dayBreakdown(sneezeData2021))	
 	timeFrame[1].write(mf.monthBreakdown(sneezeData2021))
-	timeFrame[0].write('butt')
 
 
 	
