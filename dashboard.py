@@ -16,44 +16,31 @@ def app():
 	mf.dataBreakdown(sneezeData2020)
 	mf.dataBreakdown(sneezeData2021)
 	allSneezeData = [sneezeData2020,sneezeData2021]	
+	Timestamp = sneezeData2020['Timestamp'].append(sneezeData2021['Timestamp'])
+	sneezeData2020['Year'] = 2020
+	sneezeData2021['Year'] = 2021
+	dataTotal = sneezeData2020.append(sneezeData2021)
 
 	st.title('Live Dashboard')
 	#mf.cumulativeComparison(allSneezeData)
-
-	dateRange = pd.date_range('2020-01-01','2020-12-31',freq='bm')
-	sumLineCompare(sneezeData2020,sneezeData2021)
-	heatMapChart(sneezeData2020,sneezeData2021)
-
+	sumLineCompare(dataTotal)
+	heatMapChart(dataTotal)
+	yearCompare(dataTotal)
 
 
 
-def sumLineCompare(sneezeData2020,sneezeData2021):
-	Timestamp = sneezeData2020['Timestamp'].append(sneezeData2021['Timestamp'])
-	data2020 = pd.DataFrame(sneezeData2020['Cumulative'])
-	data2021 = pd.DataFrame(sneezeData2021['Cumulative'])
-	data2020['Year'] = 2020
-	data2021['Year'] = 2021
-	dataTotal = data2020.append(data2021)
 
-
+def sumLineCompare(dataTotal):
+	selection = alt.selection_multi(fields=['Year'], bind='legend')
 
 	scales = alt.selection_interval(bind='scales')
-	lineChartDF = pd.DataFrame({
-		'Timestamp': Timestamp,
-		'Cumulative': dataTotal['Cumulative'],
-		'Year': dataTotal['Year']
-		})
 
-	highlight = alt.selection(type='single', on='mouseover',
-        fields=['Year'], nearest=True)
-
-
-
-	base = alt.Chart(lineChartDF).encode(
+	base = alt.Chart(dataTotal).encode(
 	  x=alt.X('monthdate(Timestamp):T'),
 	  y=alt.Y('Cumulative:Q'),
 	  color='Year:N',
 	  tooltip=[
+	    alt.Tooltip('year(Timestamp):T', title='Year'),
         alt.Tooltip('monthdate(Timestamp):T', title='Date'),
         alt.Tooltip('Cumulative:Q', title='Total Sneezes')
     ]
@@ -63,7 +50,7 @@ def sumLineCompare(sneezeData2020,sneezeData2021):
 	points = base.mark_circle().encode(
     opacity=alt.value(0)
 	).add_selection(
-	    highlight,
+	    #highlight,
 	    scales
 	 
 
@@ -71,33 +58,56 @@ def sumLineCompare(sneezeData2020,sneezeData2021):
 	    width=600
 	)
 	lines = base.mark_line().encode(
-    size=alt.condition(~highlight, alt.value(1), alt.value(3))
-	)
+	#opacity=alt.condition(selection, alt.value(1), alt.value(0.2)),
+    size=alt.condition(~selection, alt.value(1), alt.value(3))
+	#size=alt.condition(selection, alt.value(1), alt.value(3))
+	).add_selection(selection)
 
 	st.write(points + lines)
 
 #MAYBE ONLY DO THIS FOR ONE YEAR
 
-def heatMapChart(sneezeData2020,sneezeData2021):
-	dataTotal = sneezeData2020.append(sneezeData2021)
-	dataTotal['Time'] = pd.to_datetime(dataTotal['Timestamp']).dt.time
-	dataTotal['Date'] = pd.to_datetime(dataTotal['Timestamp']).dt.date
 
-	
-	lineChartDF = pd.DataFrame({
-		'Time': dataTotal['Time'],
-		'Date': dataTotal['Date'],
-		'Timestamp': dataTotal['Timestamp'],
-		'Sneezes': dataTotal['Number of Sneezes']
-		})
-	st.write(lineChartDF)
-	fartChart = alt.Chart(lineChartDF).mark_rect().encode(
+def heatMapChart(dataTotal):
+	#dataTotal = sneezeData2020
+	#dataTotal['Time'] = pd.to_datetime(dataTotal['Timestamp']).dt.time
+	#dataTotal['Date'] = pd.to_datetime(dataTotal['Timestamp']).dt.date
+
+	monthArray =[0,0,0,0,0,0,0,0,0,0,0,0,0]
+	for row in dataTotal.iterrows():
+		monthArray[int(pd.to_datetime(row[1]['Timestamp']).month)] += int(row[1]['Number of Sneezes'])
+
+	# lineChartDF = pd.DataFrame({
+	# 	'Time': dataTotal['Time'],
+	# 	'Date': dataTotal['Date'],
+	# 	'Timestamp': dataTotal['Timestamp'],
+	# 	'Sneezes': dataTotal['Number of Sneezes']
+	# 	})
+	fartChart = alt.Chart(dataTotal).mark_rect().encode(
     alt.X('hours(Timestamp):O', title='hour of day'),
-    alt.Y('month(Date):O', title='date'),
-    alt.Color('sum(Sneezes):Q', title='Sneezes'),
+    alt.Y('month(Timestamp):O', title='date'),
+    alt.Color('sum(Number of Sneezes):Q', title='Sneezes'),
         tooltip=[
-        alt.Tooltip('hours(Timestamp):T', title='Date'),
-        alt.Tooltip('sum(Sneezes):Q', title='Total Sneezes')
+        alt.Tooltip('hours(Timestamp):T', title='Time'),
+        alt.Tooltip('sum(Sneezes):Q', title='Total Sneezes'),
+        alt.Tooltip('median(Sneezes):Q', title='Average')
     ]
-)
+	)
+
 	st.write(fartChart)
+
+def yearCompare(dataTotal):
+	timeFrames = ['Weeks', 'Months']
+	timeFrameDropdown = alt.binding_select(options=timeFrames)
+	timeFrameSelect = alt.selection_single(fields=['Timestamp'], bind=timeFrameDropdown, name="Timestamp")
+	
+
+
+	yearlyComparison = alt.Chart(dataTotal).mark_bar().encode(
+    x=alt.X('count(Sneezes):Q'),
+    y='year(Timestamp):O',
+    color='Year:O',
+    row='month(Timestamp):O'
+	)
+
+	st.write(yearlyComparison)

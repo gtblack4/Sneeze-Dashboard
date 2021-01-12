@@ -118,15 +118,16 @@ def monthBreakdown(sneezedata):
 		'Monthly Sum' : [monthArray[1],monthArray[2],monthArray[3],monthArray[4],monthArray[5],monthArray[6],monthArray[7],monthArray[8],monthArray[9],monthArray[10],monthArray[11],monthArray[12]]
 		})
 
+
 	monthBreakdown = alt.Chart(monthBreakdown).mark_bar().encode(
 	y=alt.X('Month:N', sort=None),
 	x=alt.Y('Monthly Sum:Q'),
 	color=alt.Color('Month',legend=None)
 	).properties(width=400)
+
+
 	return monthBreakdown
-	
-def mapData(sneezedata):
-	return "fuck"
+
 
 def cumSum(sneezedata):
 	sneezedata['Cumulative'] = sneezedata['Number of Sneezes'].cumsum()
