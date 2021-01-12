@@ -35,10 +35,7 @@ def app():
 	timeFrame[0].write('butt')
 
 
-	def printLine():
-		st.write("farts")
 	
-
 	#mapcode
 	mapData = sneezeData2021['GeoCode'].str.split(",",n=1,expand=True).rename(columns={0: 'lat',1: 'lon'})
 	mapData['lat'] = mapData['lat'].str[:8].astype(float)
