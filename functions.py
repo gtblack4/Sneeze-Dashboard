@@ -14,8 +14,9 @@ def dataBreakdown(sneezedata):
 	sneezedata['Day of Year'] = pd.to_datetime(sneezedata['Timestamp']).dt.dayofyear
 	sneezedata['Week number'] = pd.to_datetime(sneezedata['Timestamp']).dt.week
 	sneezedata['Month'] = pd.to_datetime(sneezedata['Timestamp']).dt.month
+	sneezedata['Year'] = pd.to_datetime(sneezedata['Timestamp']).dt.year
 	sneezedata['Cumulative'] = sneezedata['Number of Sneezes'].cumsum(skipna=False)
-	
+	sneezedata['Month Cum'] = sneezedata.groupby(['Year','Month'])['Number of Sneezes'].cumsum()
 
 
 def buildMonthArray(sneezedata):
@@ -41,7 +42,7 @@ def getDaysElapsed():
 
 
 def totalSum(sneezedata):
-	sneezeSum=sneezedata.sum(axis=0)['Number of Sneezes']
+	sneezeSum = sneezedata.sum(axis=0)['Number of Sneezes']
 	return sneezeSum
 
 #Takes the array of sneezedata and returns the daily average
@@ -110,6 +111,7 @@ def dayBreakdown(sneezedata):
 
 def monthBreakdown(sneezedata):
 	monthArray =[0,0,0,0,0,0,0,0,0,0,0,0,0]
+
 	for row in sneezedata.iterrows():
 		monthArray[int(pd.to_datetime(row[1]['Timestamp']).month)] += int(row[1]['Number of Sneezes'])
 
