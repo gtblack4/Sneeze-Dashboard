@@ -44,9 +44,12 @@ def sumLineCompare(dataTotal):
 	)
 
 
-	points = base.mark_circle().encode(
+	points = base.mark_circle(color='red').encode(
+
+
+
     opacity=alt.value(0)
-	).add_selection(
+    	).add_selection(
 	    #highlight,
 	    scales
 	 
@@ -54,7 +57,7 @@ def sumLineCompare(dataTotal):
 	).properties(
 	    width=600
 	)
-	lines = base.mark_line().encode(
+	lines = base.mark_line(color='red').encode(
 	#opacity=alt.condition(selection, alt.value(1), alt.value(0.2)),
     size=alt.condition(~selection, alt.value(1), alt.value(3))
 	#size=alt.condition(selection, alt.value(1), alt.value(3))
@@ -74,7 +77,7 @@ def heatMapChart(dataTotal):
 	fartChart = alt.Chart(dataTotal).mark_rect().encode(
     alt.X('hours(Timestamp):O', title='hour of day'),
     alt.Y('month(Timestamp):O', title='date'),
-    alt.Color('sum(Number of Sneezes):Q', title='Sneezes'),
+    alt.Color('sum(Number of Sneezes):Q', title='Sneezes',scale=alt.Scale(scheme='yellowgreen')),
         tooltip=[
         alt.Tooltip('hours(Timestamp):T', title='Time'),
         alt.Tooltip('sum(Number of Sneezes):Q', title='Total Sneezes'),
@@ -110,19 +113,23 @@ def yearCompare2(dataTotal):
 	st.write(yearlyComparison)
 def yearCompare(dataTotal):
 	st.write(dataTotal)
-	selector = alt.selection_single(empty='all', fields=['Month Cum'])
-
+	#selector = alt.selection_single(empty='all', fields=['Number of Sneezes'])
+	selector = alt.selection_single(fields=['Month'])
+	color = alt.condition(selector,
+                      alt.Color('Year:T'),
+                      alt.value('lightgray'))
 	base = alt.Chart(dataTotal).properties(
-   
+   	
+
     height=350
 	).add_selection(selector)
 
 	hist = base.mark_bar().encode(
     y=alt.Y('sum(Number of Sneezes):Q',axis=alt.Axis(title=None, labels=True)),
-    x=alt.X('year(Timestamp):O',axis=alt.Axis(title=None, labels=False)),
-    color='Year:O',
-    column=alt.Column('month(Timestamp):O',header=alt.Header(title=None, labelOrient='bottom'))
-	)
+    x=alt.X('Year:O',axis=alt.Axis(title=None, labels=False)),
+    color=color,
+    column=alt.Column('Month:O',header=alt.Header(title=None, labelOrient='bottom'))
+	).add_selection(selector)
 
 
 # .configure_scale(bandPaddingInner=0,
@@ -131,11 +138,12 @@ def yearCompare(dataTotal):
 # 	    stroke='transparent'
 # 	).configure_facet(spacing=0)
 
-
+	
 	monthLine = base.mark_line().encode(
-		x=alt.X('monthday(Timestamp):T'),
-		y=alt.Y('Month Cum')
-		).transform_filter(
-    selector
-)
+		#x=alt.X('monthday(Timestamp):T'),
+		x=alt.X('Day of Month'),
+		y=alt.Y('Month Cum'),
+		color = color
+		
+).add_selection(selector)
 	st.write(hist & monthLine)

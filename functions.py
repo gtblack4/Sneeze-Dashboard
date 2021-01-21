@@ -12,6 +12,7 @@ dateFormat = "%I:%M %p %m/%d/%Y"
 def dataBreakdown(sneezedata):
 	sneezedata['Day of Week'] = pd.to_datetime(sneezedata['Timestamp']).dt.dayofweek
 	sneezedata['Day of Year'] = pd.to_datetime(sneezedata['Timestamp']).dt.dayofyear
+	sneezedata['Day of Month'] = pd.to_datetime(sneezedata['Timestamp']).dt.day
 	sneezedata['Week number'] = pd.to_datetime(sneezedata['Timestamp']).dt.week
 	sneezedata['Month'] = pd.to_datetime(sneezedata['Timestamp']).dt.month
 	sneezedata['Year'] = pd.to_datetime(sneezedata['Timestamp']).dt.year

@@ -32,8 +32,9 @@ def main():
 	page = PAGES[selection]
 	
 
-# For now, if the file doesn't exist. We will retreive it from Google.
-# TODO Check if the file was created in the last week
+#For now, if the file doesn't exist. We will retreive it from Google.
+#TODO Check if the file was created in the last week
+
 	# if (os.path.isfile("sneezes2020.csv")):
 	# 	gc = gspread.service_account(filename='service_account.json')
 	# 	worksheet = gc.open('2020 Sneeze Survey')
