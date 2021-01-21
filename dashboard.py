@@ -18,13 +18,13 @@ def app():
 	mf.dataBreakdown(sneezeData2021)
 
 	dataTotal = sneezeData2020.append(sneezeData2021)
-	st.write(dataTotal)
+	#st.write(dataTotal)
 	st.title('Live Dashboard')
 	#mf.cumulativeComparison(allSneezeData)
 	sumLineCompare(dataTotal)
 	heatMapChart(dataTotal)
-	yearCompare(dataTotal)
-	
+	#yearCompare(dataTotal)
+	yearCompareLines(dataTotal)
 
 
 def sumLineCompare(dataTotal):
@@ -111,16 +111,45 @@ def yearCompare2(dataTotal):
 
 
 	st.write(yearlyComparison)
+
+
+def yearCompareLines(dataTotal):
+	print('fart')
+	selector = alt.selection_single(fields=['Month'])
+
+	color = alt.condition(selector,
+                    alt.Color('yearmonth(Timestamp):T',scale=alt.Scale(scheme='yellowgreen')),
+                    alt.value('lightgrey'))
+	opacity = alt.condition(selector, alt.value(1.0), alt.value(0))
+	base = alt.Chart(dataTotal).properties(
+	height = 350)
+
+	legend = base.mark_point().encode(
+	y=alt.Y('month(Timestamp):N', axis=alt.Axis(orient='right')),
+	color=color
+	).add_selection(
+	selector)
+
+	monthLine = base.mark_line().encode(
+	# 	#x=alt.X('monthday(Timestamp):T'),
+	x=alt.X('date(Timestamp)'),
+	y=alt.Y('Month Cum'),
+	color = color,
+	opacity = opacity
+		
+	).add_selection(selector)
+	st.write(monthLine | legend)
+
+
 def yearCompare(dataTotal):
 	st.write(dataTotal)
 	#selector = alt.selection_single(empty='all', fields=['Number of Sneezes'])
-	selector = alt.selection_single(fields=['Month'])
+	selector = alt.selection_single(empty='all',fields=['Month'])
 	color = alt.condition(selector,
-                      alt.Color('Year:T'),
-                      alt.value('lightgray'))
-	base = alt.Chart(dataTotal).properties(
-   	
+                      alt.Color('Year:O'),
+                      alt.value('lightgrey'))
 
+	base = alt.Chart(dataTotal).properties(
     height=350
 	).add_selection(selector)
 
@@ -145,5 +174,5 @@ def yearCompare(dataTotal):
 		y=alt.Y('Month Cum'),
 		color = color
 		
-).add_selection(selector)
+	).add_selection(selector)
 	st.write(hist & monthLine)
