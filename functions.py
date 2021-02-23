@@ -13,7 +13,7 @@ def dataBreakdown(sneezedata):
 	sneezedata['Day of Week'] = pd.to_datetime(sneezedata['Timestamp']).dt.dayofweek
 	sneezedata['Day of Year'] = pd.to_datetime(sneezedata['Timestamp']).dt.dayofyear
 	sneezedata['Day of Month'] = pd.to_datetime(sneezedata['Timestamp']).dt.day
-	sneezedata['Week number'] = pd.to_datetime(sneezedata['Timestamp']).dt.isocalendar().week
+	sneezedata['Week Number'] = pd.to_datetime(sneezedata['Timestamp']).dt.isocalendar().week
 	sneezedata['Month'] = pd.to_datetime(sneezedata['Timestamp']).dt.month
 	sneezedata['Year'] = pd.to_datetime(sneezedata['Timestamp']).dt.year
 	sneezedata['Cumulative'] = sneezedata['Number of Sneezes'].cumsum(skipna=False)
@@ -92,6 +92,15 @@ def sneezeLessDays(sneezedata):
 	return(numDays)
 
 def dayBreakdown(sneezedata):
+	dayBreakdown = alt.Chart(sneezedata).mark_bar().encode(
+	x=alt.X('day(Timestamp)'),
+	y=alt.Y('Number of Sneezes'),
+	color=alt.Color('Year:N')
+	).properties(width=350)
+	return dayBreakdown
+
+
+def dayBreakdown2(sneezedata):
 
 	#breakdown = [pd.DatetimeIndex(sneezedata['Timestamp']).dayofweek],[sneezedata['Number of Sneezes']]
 	dayofweek =[0,0,0,0,0,0,0]
@@ -148,4 +157,3 @@ def cumulativeComparison(allSneezeData):
 		row[twenty] = row['Number of Sneezes'].cumsum()
 		twenty += 1
 		
-	

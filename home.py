@@ -12,11 +12,16 @@ import requests
 import gspread
 import os.path
 import functions as mf
+favicon = 'favicon.png'
 def main():
+	st.set_page_config(page_title='The Sneeze Project', page_icon = favicon, layout = 'centered', initial_sidebar_state = 'auto')
+
+	#st.write('<style>body { margin: 0; font-family: Arial, Helvetica, sans-serif;} .header{padding: 10px 16px; background: #555; color: #f1f1f1; position:fixed;top:0;} .sticky { position: fixed; top: 0; width: 100%;} </style><div class="header" id="myHeader">'+'Fart'+'</div>', unsafe_allow_html=True)
 	sneezeData2020 = pd.read_csv('sneezes2020.csv',sep=";") #.dropna()
 	sneezeData2021 = pd.read_csv('sneezes2021.csv',sep=";") #.dropna()
 
-	st.title("Gage's Sneeze Collection Project")
+
+	
 
 	PAGES = {
 		"Dashboard": dashboard,

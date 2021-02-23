@@ -34,3 +34,71 @@ Timestamp;Number of Sneezes;Location;Probable Cause;Number of Blesses;Number of 
 1/20/2021 12:43:05;3;Your Home;Change in Brightness (Natural);0;0;;Cats;;01/21/2021 0:43:09;41.4978629,-81.6937456;Tower City-Public Sq Stn, Cleveland, OH 44113, USA
 1/21/2021 11:46:54;3;Your Home;Change in Brightness (Artificial);0;0;;;;01/21/2021 23:46:58;41.4979034,-81.6937267;230 Huron Rd E, Cleveland, OH 44113, USA
 1/21/2021 13:49:02;1;Your Home;Change in Brightness (Natural);0;0;;;;01/22/2021 1:49:05;41.4979343,-81.6936995;230 Huron Rd E, Cleveland, OH 44113, USA
+1/22/2021 15:35:35;3;Car (Passenger);Change in Brightness (Natural);2;3;Charlee, Chloe, Danny;;;01/23/2021 3:35:39;39.0250386,-80.4150908;509 Berlin Rd, Weston, WV 26452, USA
+1/23/2021 13:07:47;3;Car (Passenger);Change in Brightness (Natural);1;1;Charlee ;;;01/24/2021 1:07:51;38.2301845,-80.9334294;5596 Summersville Lake Rd, Keslers Cross Lanes, WV 26675, USA
+1/23/2021 13:55:42;4;Car (Passenger);Change in Brightness (Natural);1;1;Charlee ;;;01/24/2021 1:55:46;38.0345979,-81.1203243;100 Fayette Town Center, Fayetteville, WV 25840, USA
+1/23/2021 14:50:23;3;Parking Lot;Change in Brightness (Natural);1;1;Charlee;;;01/24/2021 2:50:27;37.8163041,-81.2151;141 Evans St, Beckley, WV 25801, USA
+1/23/2021 15:16:00;4;Parking Lot;Change in Brightness (Natural);1;1;Charlee;;;01/24/2021 3:16:04;37.7046946,-81.1506529;I-77, Daniels, WV 25832, USA
+1/23/2021 21:16:50;3;Car (Passenger);Change in Brightness (Natural);1;1;Charlee ;;;01/24/2021 9:17:05;38.2301845,-80.9334294;5596 Summersville Lake Rd, Keslers Cross Lanes, WV 26675, USA
+1/24/2021 13:28:17;3;Car (Passenger);Change in Brightness (Natural);3;3;Charlee, Chloey, Danny;;;01/25/2021 1:28:20;38.1953094,-80.8613468;60 Riviera Rd, Mt Nebo, WV 26679, USA
+1/24/2021 15:50:48;2;Car (Passenger);Unknown;2;3;Charlee, Chloey, Danny;;;01/25/2021 3:50:51;38.3948247,-81.5855183;2792 Pennsylvania Ave, Charleston, WV 25302, USA
+1/25/2021 10:24:52;4;Car (Driving);Change in Brightness (Natural);0;0;;;;01/25/2021 22:24:56;41.4247004,-81.5469957;18920 McCracken Rd, Maple Heights, OH 44137, USA
+1/25/2021 11:54:19;4;Car (Driving);Change in Brightness (Natural);0;0;;;;01/25/2021 23:54:22;41.1158604,-80.6556461;468 Lexington Ave, Youngstown, OH 44504, USA
+1/25/2021 12:21:41;2;Car (Driving);Change in Brightness (Natural);0;0;;;;01/26/2021 0:21:44;41.2302937,-80.9715873;Ohio Turnpike, Newton Falls, OH 44444, USA
+1/26/2021 11:04:58;2;Your Home;Change in Brightness (Natural);0;0;;Cats;;01/26/2021 23:05:01;41.4978822,-81.6937537;230 Huron Rd E, Cleveland, OH 44113, USA
+1/28/2021 12:20:26;2;Hospital;Unknown;0;Public Space;;;;01/29/2021 0:20:30;41.5006691,-81.6225064;9600 Carnegie Ave, Cleveland, OH 44106, USA
+1/31/2021 13:38:27;2;Someone else's house;Change in Brightness (Artificial);1;1;Charlee ;Dogs;;02/01/2021 1:38:31;41.5100313,-81.5811249;2758 Hampshire Rd, Cleveland Heights, OH 44106, USA
+1/31/2021 18:42:24;2;Your Home;Cleaning;0;0;;Cats;;02/01/2021 7:41:34;41.4978933,-81.6936755;230 Huron Rd E, Cleveland, OH 44113, USA
+1/31/2021 21:41:24;4;Your Home;Change in Brightness (Artificial);0;0;;Cats;;02/01/2021 12:17:57;41.4978801,-81.6936411;230 Huron Rd E, Cleveland, OH 44113, USA
+2/1/2021 0:23:29;2;Your Home;Change in Brightness (Artificial);0;0;;Cats;;02/01/2021 12:23:32;41.4978801,-81.6936411;230 Huron Rd E, Cleveland, OH 44113, USA
+2/1/2021 10:00:17;3;Your Home;Change in Brightness (Natural);0;0;;Cats;;02/01/2021 22:00:21;41.4979003,-81.6936962;230 Huron Rd E, Cleveland, OH 44113, USA
+2/1/2021 15:09:07;2;Your Home;Change in Brightness (Artificial);0;0;;Cats;;02/02/2021 3:09:10;41.4979015,-81.6936953;230 Huron Rd E, Cleveland, OH 44113, USA
+2/1/2021 20:56:43;2;Your Home;Unknown;0;2;Ryan, Barry;;;02/02/2021 8:56:46;41.4978859,-81.6936847;230 Huron Rd E, Cleveland, OH 44113, USA
+2/1/2021 21:34:28;3;Your Home;Change in Brightness (Artificial);0;1;Barry;;;02/02/2021 9:34:33;41.4978981,-81.6936665;230 Huron Rd E, Cleveland, OH 44113, USA
+2/2/2021 10:52:08;4;Your Home;Change in Brightness (Natural);0;0;;Cats;;02/02/2021 22:52:12;41.4979003,-81.6936756;230 Huron Rd E, Cleveland, OH 44113, USA
+2/2/2021 11:36:11;2;Your Home;Change in Brightness (Natural);0;0;;Cats;;02/02/2021 23:36:15;41.497911,-81.6936992;230 Huron Rd E, Cleveland, OH 44113, USA
+2/2/2021 12:20:04;3;Your Home;Other (Add in Notes);0;0;;Cats;Brushing Frank;02/03/2021 0:20:07;41.4978991,-81.6937078;230 Huron Rd E, Cleveland, OH 44113, USA
+2/2/2021 12:57:56;4;Your Home;Change in Brightness (Natural);0;0;;;;02/03/2021 0:58:07;41.498457,-81.6947487;222 Public Square, Cleveland, OH 44114, USA
+2/2/2021 17:12:20;2;Your Home;Change in Brightness (Natural);0;1;Ryan;;;02/03/2021 5:12:25;41.4979013,-81.6937032;230 Huron Rd E, Cleveland, OH 44113, USA
+2/3/2021 9:10:50;4;Your Home;Change in Brightness (Artificial);0;0;;Cats;;02/03/2021 21:10:53;41.4978708,-81.6936316;230 Huron Rd E, Cleveland, OH 44113, USA
+2/3/2021 11:39:19;2;Your Home;Unknown;0;0;;Cats;;02/03/2021 23:39:22;41.4978926,-81.6937217;230 Huron Rd E, Cleveland, OH 44113, USA
+2/3/2021 23:06:07;5;Your Home;Change in Brightness (Artificial);0;0;;Cats;;02/04/2021 11:06:10;41.4978043,-81.6937716;Tower City-Public Sq Stn, Cleveland, OH 44113, USA
+2/4/2021 10:14:20;3;Your Home;Change in Brightness (Natural);0;0;;Cats;;02/04/2021 22:14:24;41.4978598,-81.6937472;Tower City-Public Sq Stn, Cleveland, OH 44113, USA
+2/4/2021 13:14:02;3;Your Home;Change in Brightness (Natural);0;0;;Cats;;02/05/2021 1:14:05;41.4977603,-81.6937615;Tower City-Public Sq Stn, Cleveland, OH 44113, USA
+2/4/2021 13:28:33;3;Your Home;Change in Brightness (Artificial);0;0;;Cats;;02/05/2021 1:28:36;41.4977603,-81.6937615;Tower City-Public Sq Stn, Cleveland, OH 44113, USA
+2/4/2021 14:39:48;3;Your Home;Unknown;0;0;;Cats;;02/05/2021 2:39:51;41.4978832,-81.6937347;230 Huron Rd E, Cleveland, OH 44113, USA
+2/4/2021 17:13:29;3;Your Home;Other (Add in Notes);0;0;;Cats;Nose trimming;02/05/2021 5:13:33;41.4978591,-81.6937657;Tower City-Public Sq Stn, Cleveland, OH 44113, USA
+2/5/2021 19:07:54;2;Bar/Restaurant;Unknown;0;4;Strangers;;;02/06/2021 7:07:58;41.4993319,-81.6919993;170 US-20, Cleveland, OH 44114, USA
+2/5/2021 21:13:08;2;Your Home;Unknown;0;2;Ryan, Barry;Cats;;02/06/2021 9:13:12;41.4978646,-81.6937259;Tower City-Public Sq Stn, Cleveland, OH 44113, USA
+2/7/2021 15:06:05;3;Your Home;Unknown;0;0;;;;02/08/2021 3:06:09;41.4977884,-81.6937442;Tower City-Public Sq Stn, Cleveland, OH 44113, USA
+2/7/2021 16:56:23;4;Car (Driving);Change in Brightness (Natural);0;0;;;;02/08/2021 4:56:27;41.4981714,-81.6950908;301 W Superior Ave, Cleveland, OH 44113, USA
+2/8/2021 9:08:42;3;Your Home;Change in Brightness (Natural);0;0;;Cats;;02/08/2021 21:08:46;41.497802,-81.6937278;Tower City-Public Sq Stn, Cleveland, OH 44113, USA
+2/8/2021 11:21:00;4;Your Home;Change in Brightness (Natural);0;0;;Cats;;02/08/2021 23:21:03;41.4977742,-81.6937429;Tower City-Public Sq Stn, Cleveland, OH 44113, USA
+2/8/2021 21:05:01;3;Your Home;Change in Brightness (Natural);0;0;Ryan, Barry;;;02/09/2021 9:05:03;41.4978325,-81.6937292;Tower City-Public Sq Stn, Cleveland, OH 44113, USA
+2/9/2021 12:53:08;4;Your Home;Change in Brightness (Natural);0;0;;Cats;;02/10/2021 0:53:11;41.4978137,-81.693736;Tower City-Public Sq Stn, Cleveland, OH 44113, USA
+2/9/2021 13:08:14;4;Your Home;Change in Brightness (Natural);0;0;;;;02/10/2021 1:08:17;41.4978037,-81.6937363;Tower City-Public Sq Stn, Cleveland, OH 44113, USA
+2/9/2021 13:31:21;3;Your Home;Change in Brightness (Natural);0;0;;Cats;;02/10/2021 1:31:25;41.4978723,-81.693685;230 Huron Rd E, Cleveland, OH 44113, USA
+2/9/2021 14:50:10;3;Your Home;Change in Brightness (Natural);0;0;;Cats;;02/10/2021 2:50:13;41.4978291,-81.6937286;Tower City-Public Sq Stn, Cleveland, OH 44113, USA
+2/9/2021 15:14:07;3;Your Home;Change in Brightness (Natural);0;0;;Cats;;02/10/2021 3:14:11;41.497808,-81.6937811;Tower City-Public Sq Stn, Cleveland, OH 44113, USA
+2/10/2021 12:41:25;2;Your Home;Change in Brightness (Natural);0;0;;Cats;;02/11/2021 0:41:30;41.4977872,-81.6937294;Tower City-Public Sq Stn, Cleveland, OH 44113, USA
+2/10/2021 22:13:28;3;Someone else's house;Smoke;1;1;Charlee;Dogs;;02/11/2021 10:13:32;41.5100856,-81.5811178;2758 Hampshire Rd, Cleveland Heights, OH 44106, USA
+2/11/2021 14:10:20;3;Your Home;Change in Brightness (Natural);0;0;;Cats;;02/12/2021 2:10:23;41.4976864,-81.693733;13 W Prospect Ave, Cleveland, OH 44113, USA
+2/11/2021 22:29:26;2;Your Home;Change in Brightness (Artificial);0;2;Ryan, Barry;Cats;;02/12/2021 10:29:30;41.4976874,-81.6937331;13 W Prospect Ave, Cleveland, OH 44113, USA
+2/13/2021 0:43:15;3;Your Home;Change in Brightness (Natural);0;0;;Cats;;02/13/2021 12:43:18;41.497689,-81.6937353;13 W Prospect Ave, Cleveland, OH 44113, USA
+2/13/2021 14:57:06;3;Your Home;Change in Brightness (Natural);0;4;Scott, Noah, Mitch, Alex ;Cats;;02/14/2021 2:57:10;41.4976845,-81.693728;13 W Prospect Ave, Cleveland, OH 44113, USA
+2/14/2021 11:31:36;4;Car (Passenger);Change in Brightness (Natural);1;1;Charlee;Dogs;;02/14/2021 23:31:40;41.5009922,-81.6122819;10664 Carnegie Ave, Cleveland, OH 44106, USA
+2/14/2021 11:43:37;3;Car (Passenger);Change in Brightness (Natural);1;1;Charlee;Dogs;;02/14/2021 23:43:40;41.4311854,-81.6479435;I-77, Cleveland, OH 44125, USA
+2/14/2021 21:26:18;1;Someone else's house;Smoke;1;1;Charlee;Dogs;Incense;02/15/2021 9:26:22;41.5100807,-81.5811567;2758 Hampshire Rd, Cleveland Heights, OH 44106, USA
+2/14/2021 22:00:58;2;Someone else's house;Smoke;1;1;Charlee ;Dogs;Incense;02/15/2021 10:01:02;41.5100696,-81.5811494;2758 Hampshire Rd, Cleveland Heights, OH 44106, USA
+2/15/2021 9:34:32;3;Your Home;Change in Brightness (Natural);0;0;;Cats;;02/15/2021 21:34:36;41.4976913,-81.6937437;13 W Prospect Ave, Cleveland, OH 44113, USA
+2/15/2021 14:33:45;2;Your Home;Change in Brightness (Natural);0;0;;Cats;;02/16/2021 2:33:48;41.4976862,-81.693744;13 W Prospect Ave, Cleveland, OH 44113, USA
+2/16/2021 13:26:44;4;Your Home;Change in Brightness (Natural);0;0;;Cats;;02/17/2021 1:26:47;41.4976895,-81.6937505;13 W Prospect Ave, Cleveland, OH 44113, USA
+2/16/2021 15:40:37;3;Your Home;Change in Brightness (Natural);0;0;;Cats;;02/17/2021 3:40:41;41.4976879,-81.6937276;13 W Prospect Ave, Cleveland, OH 44113, USA
+2/17/2021 11:07:11;4;Your Home;Change in Brightness (Natural);0;0;;Cats;;02/17/2021 23:07:15;41.4976902,-81.6937345;13 W Prospect Ave, Cleveland, OH 44113, USA
+2/17/2021 14:15:27;3;Your Home;Change in Brightness (Natural);0;0;;Cats;;02/18/2021 2:15:31;41.4976965,-81.6937682;Tower City-Public Sq Stn, Cleveland, OH 44113, USA
+2/19/2021 14:46:10;5;Your Home;Change in Brightness (Natural);0;0;;Cats;;02/20/2021 2:46:14;41.4976748,-81.693719;13 W Prospect Ave, Cleveland, OH 44113, USA
+2/19/2021 18:14:52;4;Your Home;Change in Brightness (Natural);0;0;;Cats;;02/20/2021 6:14:56;41.4976799,-81.6937433;13 W Prospect Ave, Cleveland, OH 44113, USA
+2/20/2021 16:10:33;4;Car (Driving);Change in Brightness (Natural);0;0;;;;02/21/2021 4:10:37;41.4983159,-81.6938022;50 Public Square, Cleveland, OH 44113, USA
+2/20/2021 19:05:10;2;Someone else's house;Change in Brightness (Natural);1;1;Charlee ;Dogs;;02/21/2021 7:05:14;41.510077,-81.5811473;2758 Hampshire Rd, Cleveland Heights, OH 44106, USA
+2/21/2021 0:22:08;2;Someone else's house;Change in Brightness (Artificial);1;1;Charlee;;;02/21/2021 13:23:21;41.510068,-81.581144;2758 Hampshire Rd, Cleveland Heights, OH 44106, USA
+2/21/2021 19:12:29;4;Your Home;Change in Brightness (Natural);0;0;;Cats;;02/22/2021 7:12:32;41.4981714,-81.6950908;301 W Superior Ave, Cleveland, OH 44113, USA

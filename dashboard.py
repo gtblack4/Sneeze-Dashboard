@@ -8,24 +8,72 @@ import functions as mf
 import altair as alt
 import gspread
 import time
+import functions as mf
 #imports the csv file
 
 
 def app():
+	#Reads the CSV files and builds an array of the data
+
+
 	sneezeData2020 =pd.read_csv('sneezes2020.csv',sep=";")
 	sneezeData2021 =pd.read_csv('sneezes2021.csv',sep=";")
 	mf.dataBreakdown(sneezeData2020)
 	mf.dataBreakdown(sneezeData2021)
-
 	dataTotal = sneezeData2020.append(sneezeData2021)
-	#st.write(dataTotal)
-	st.title('Live Dashboard')
-	#mf.cumulativeComparison(allSneezeData)
-	sumLineCompare(dataTotal)
-	heatMapChart(dataTotal)
-	#yearCompare(dataTotal)
-	yearCompareLines(dataTotal)
+	st.title("Gage's Sneezes")
+	st.write('Hello! My name is Gage Black and I\' been logging my sneezes since 2020. I noticed that I sneezed more than my friends and coworkers, and I set out to prove it. I\'e create a number of graphs in order to help me understand why I\'m sneezing so much.')
+	
+	timeFrame = st.beta_columns(2)
+	timeFrame[0].write(mf.dayBreakdown(dataTotal))	
+	timeFrame[1].write(mf.dayBreakdown2(dataTotal))
+	lineCompare = sumLineCompare(dataTotal)
 
+	weekCompare = weeklySneezes(dataTotal)
+	heatMapChart(dataTotal)
+	yearCompareLines(dataTotal)
+	#mf.atAGlance(dataTotal)
+	st.write(lineCompare)
+	st.write(weekCompare)
+
+#Creates a Line Graph to compare Year to Year Cumulative sneezes
+def weeklySneezes(dataTotal):
+	selection = alt.selection_multi(fields=['Year'], bind='legend')
+
+	scales = alt.selection_interval(bind='scales')
+
+	base = alt.Chart(dataTotal).encode(
+	  x=alt.X('yearmonth(Timestamp):T'),
+	  y=alt.Y('Number of Sneezes',bin=True),
+	  color='Year:N',
+	  tooltip=[
+	    alt.Tooltip('(Week Number):T', title='Year'),
+        alt.Tooltip('monthdate(Timestamp):T', title='Date'),
+        alt.Tooltip('Cumulative:Q', title='Total Sneezes')
+    ]
+	)
+
+
+	points = base.mark_circle(color='red').encode(
+
+
+
+    opacity=alt.value(0)
+    	).add_selection(
+	    #highlight,
+	    scales
+	 
+
+	).properties(
+	    
+	)
+	lines = base.mark_line(color='red').encode(
+	#opacity=alt.condition(selection, alt.value(1), alt.value(0.2)),
+    size=alt.condition(~selection, alt.value(1), alt.value(3))
+	#size=alt.condition(selection, alt.value(1), alt.value(3))
+	).add_selection(selection)
+
+	return points + lines
 
 def sumLineCompare(dataTotal):
 	selection = alt.selection_multi(fields=['Year'], bind='legend')
@@ -55,7 +103,7 @@ def sumLineCompare(dataTotal):
 	 
 
 	).properties(
-	    width=600
+	    
 	)
 	lines = base.mark_line(color='red').encode(
 	#opacity=alt.condition(selection, alt.value(1), alt.value(0.2)),
@@ -63,7 +111,7 @@ def sumLineCompare(dataTotal):
 	#size=alt.condition(selection, alt.value(1), alt.value(3))
 	).add_selection(selection)
 
-	st.write(points + lines)
+	return points + lines
 
 #MAYBE ONLY DO THIS FOR ONE YEAR
 
